@@ -1,0 +1,59 @@
+.container {
+  background-color: rgb(230, 230, 230);
+}
+.search {
+  border-radius: 10px;
+  text-align: center;
+  background-color: rgb(230, 230, 230);
+}
+.containerHeader {
+  margin: 30px;
+  text-align: center;
+}
+.title {
+  font-size: 50px;
+}
+.logo {
+  width: 100px;
+}
+.containerTable {
+  text-align: left;
+  vertical-align: top;
+}
+.titleFilter {
+  font-size: 20px;
+  vertical-align: text-top;
+  text-align: center;
+}
+.containerFilter {
+  position: relative;
+  cursor: pointer;
+}
+.filter {
+  position: absolute;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.table {
+  text-align: center;
+}
+li {
+  list-style: none;
+}
+.filterSelect {
+  text-align: center;
+}
+
+.filterSelect {
+  justify-content: left;
+}
+.accordionContent {
+  text-align: left;
+}
+
+@media (max-width: 400px) {
+  th {
+    font-size: 14px;
+  }
+}

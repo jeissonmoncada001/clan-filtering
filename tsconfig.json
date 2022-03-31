@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-  ]
+, "cocApi.ts", "api", "src/api/coc.ts"  ]
 }
