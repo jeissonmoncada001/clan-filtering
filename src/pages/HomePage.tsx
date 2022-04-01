@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
-import { useGetClans } from '../hooks/useClashOfClans';
-import { IClans } from './homePage.props';
-import './style.css';
+import { useEffect, useState } from "react";
+import { useGetClans } from "../hooks/useClashOfClans";
+import { IClans } from "./homePage.props";
+import "./style.css";
 
 const HomePage = () => {
   const [clansData, setClansData] = useState([]);
-  const [applyFilter, setApplyFilter] = useState('');
+  const [applyFilter, setApplyFilter] = useState("");
   const { data: clans, isLoading } = useGetClans();
   const [isActive, setIsActive] = useState(false);
   const [isActiveType, setIsActiveType] = useState(false);
@@ -22,7 +22,7 @@ const HomePage = () => {
   };
 
   const filterBy = (filter: string, by: keyof IClans, check: boolean) => {
-    setApplyFilter(check ? filter : '');
+    setApplyFilter(check ? filter : "");
     const filterClans = check
       ? clans.filter((clan: IClans) => clan[by] === filter)
       : clans;
@@ -39,7 +39,7 @@ const HomePage = () => {
           type="text"
           placeholder="Search by name clan"
           onChange={(e) => {
-            setApplyFilter('');
+            setApplyFilter("");
             searchByName(e.target.value);
           }}
         />
@@ -56,7 +56,7 @@ const HomePage = () => {
                 onClick={() => setIsActiveType(!isActiveType)}
               >
                 <div className="titleFilter">Type</div>
-                <div className="titleFilter">{isActive ? '-' : '+'}</div>
+                <div className="titleFilter">{isActive ? "-" : "+"}</div>
               </div>
               {isActiveType && (
                 <div className="accordionContent">
@@ -65,10 +65,10 @@ const HomePage = () => {
                       <label>
                         <input
                           className="filterSelect"
-                          checked={applyFilter === 'inviteOnly'}
+                          checked={applyFilter === "inviteOnly"}
                           type="checkbox"
                           onChange={(e) => {
-                            filterBy('inviteOnly', 'type', e.target.checked);
+                            filterBy("inviteOnly", "type", e.target.checked);
                           }}
                         />
                         inviteOnly
@@ -77,10 +77,10 @@ const HomePage = () => {
                     <li>
                       <label>
                         <input
-                          checked={applyFilter === 'closed'}
+                          checked={applyFilter === "closed"}
                           type="checkbox"
                           onChange={(e) => {
-                            filterBy('closed', 'type', e.target.checked);
+                            filterBy("closed", "type", e.target.checked);
                           }}
                         />
                         closed
@@ -89,10 +89,10 @@ const HomePage = () => {
                     <li>
                       <label>
                         <input
-                          checked={applyFilter === 'open'}
+                          checked={applyFilter === "open"}
                           type="checkbox"
                           onChange={(e) => {
-                            filterBy('open', 'type', e.target.checked);
+                            filterBy("open", "type", e.target.checked);
                           }}
                         />
                         open
@@ -110,7 +110,7 @@ const HomePage = () => {
               onClick={() => setIsActive(!isActive)}
             >
               <div className="titleFilter">War frequency</div>
-              <div className="titleFilter">{isActive ? '-' : '+'}</div>
+              <div className="titleFilter">{isActive ? "-" : "+"}</div>
             </div>
             {isActive && (
               <div className="accordion-content">
@@ -118,10 +118,10 @@ const HomePage = () => {
                   <li>
                     <label>
                       <input
-                        checked={applyFilter === 'always'}
+                        checked={applyFilter === "always"}
                         type="checkbox"
                         onChange={(e) => {
-                          filterBy('always', 'warFrequency', e.target.checked);
+                          filterBy("always", "warFrequency", e.target.checked);
                         }}
                       />
                       always
@@ -130,10 +130,10 @@ const HomePage = () => {
                   <li>
                     <label>
                       <input
-                        checked={applyFilter === 'unknown'}
+                        checked={applyFilter === "unknown"}
                         type="checkbox"
                         onChange={(e) => {
-                          filterBy('unknown', 'warFrequency', e.target.checked);
+                          filterBy("unknown", "warFrequency", e.target.checked);
                         }}
                       />
                       unknown
@@ -148,7 +148,7 @@ const HomePage = () => {
           <p>Loading</p>
         ) : (
           clansData?.map?.((clan: IClans) => (
-            <tr>
+            <tr key={clans}>
               <td>
                 <img
                   src={clan.badgeUrls.small}
